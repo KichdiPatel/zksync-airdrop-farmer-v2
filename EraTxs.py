@@ -1,14 +1,12 @@
-from web3 import Web3
-from web3 import AsyncWeb3, AsyncHTTPProvider
 import json
-from Wallets import Wallets
-import asyncio
-from datetime import datetime, timedelta
-from helpers import submitTx, get_tx_data, rand_string
 import random
+from datetime import datetime, timedelta
 from hashlib import sha256
-import time
 
+from web3 import AsyncHTTPProvider, AsyncWeb3
+
+from helpers import get_tx_data, rand_string, submitTx
+from Wallets import Wallets
 
 web3 = AsyncWeb3(AsyncHTTPProvider("https://mainnet.era.zksync.io"))
 
@@ -299,4 +297,4 @@ def chooseEraTx():
     random.choices(ERA_TX_LIST, TX_WEIGHTS, k=1)[0]
 
 
-# asyncio.run(ERA_TX_LIST[9]("0x09F4E0028d76221CC714C2758c45480f75C76398"))
+# asyncio.run(ERA_TX_LIST[9]("0x..."))

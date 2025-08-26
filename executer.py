@@ -1,12 +1,13 @@
-from Wallets import Wallets
-from DataQueue import Queue
+import asyncio
 import random
-from datetime import datetime, timedelta
 import time
+from datetime import datetime, timedelta
+
 import EraTxs as era
 import syncswap as s
 import zkswap as z
-import asyncio
+from DataQueue import Queue
+from Wallets import Wallets
 
 EXECUTOR_DELAY = 120
 
@@ -44,7 +45,6 @@ def randDay(start, end):
 
 # update with 'params' logic
 def chooseNextTx(address):
-
     # choosing the Tx
     nextTx = random.choices(list(ERA_TX_LIST.keys()), TX_WEIGHTS, k=1)[0]
 
@@ -139,7 +139,7 @@ def runBot():
 
 # addToQueue(
 #     "zkswap",
-#     "0xBfF1759579b01efF642382AB813E4155e0d22D32",
+#     "0x...",
 #     datetime.now(),
 #     "ETH USDT",
 # )

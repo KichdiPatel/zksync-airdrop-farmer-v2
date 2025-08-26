@@ -1,11 +1,11 @@
-from web3 import AsyncWeb3, AsyncHTTPProvider
-from Wallets import Wallets
-from helpers import submitTx, get_tx_data, rand_string, approve, getBalance
 import json
-import asyncio
+from datetime import datetime
+
 from eth_abi import abi
-import time
-from datetime import datetime, timedelta
+from web3 import AsyncHTTPProvider, AsyncWeb3
+
+from helpers import approve, get_tx_data, getBalance, submitTx
+from Wallets import Wallets
 
 #    "MAV": "0x787c09494Ec8Bcb24DcAf8659E7d5D69979eE508",
 
@@ -149,4 +149,4 @@ async def syncswap(address, from_token, to_token):
     return True
 
 
-# asyncio.run(syncswap("0xBd67F84758f8A873b81b247bd53866106ECf205f", "USDC", "ETH"))
+# asyncio.run(syncswap("0x...", "USDC", "ETH"))

@@ -1,12 +1,10 @@
-from web3 import AsyncWeb3, AsyncHTTPProvider
-from Wallets import Wallets
-from helpers import submitTx, get_tx_data, rand_string, approve, getBalance
 import json
-import asyncio
-from eth_abi import abi
-import time
-from datetime import datetime, timedelta
+from datetime import datetime
 
+from web3 import AsyncHTTPProvider, AsyncWeb3
+
+from helpers import approve, get_tx_data, getBalance, submitTx
+from Wallets import Wallets
 
 TOKENS = {
     "ETH": "0x5AEa5775959fBC2557Cc8789bC1bf90A239D9a91",  # 0x5AEa5775959fBC2557Cc8789bC1bf90A239D9a91
@@ -109,4 +107,4 @@ async def zkswap(address, from_token, to_token):
     return True
 
 
-# asyncio.run(zkswap("0xBd67F84758f8A873b81b247bd53866106ECf205f", "USDT", "ETH"))
+# asyncio.run(zkswap("0x...", "USDT", "ETH"))

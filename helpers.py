@@ -1,10 +1,10 @@
-from web3 import Web3
 import asyncio
-from web3 import AsyncWeb3
-from web3 import AsyncWeb3, AsyncHTTPProvider
+import json
 import secrets
 import string
-import json
+
+from web3 import AsyncHTTPProvider, AsyncWeb3, Web3
+
 from Wallets import Wallets
 
 web3 = AsyncWeb3(AsyncHTTPProvider("https://mainnet.era.zksync.io"))
@@ -13,7 +13,6 @@ w3 = Web3(Web3.HTTPProvider("https://mainnet.era.zksync.io"))
 
 
 async def get_tx_data(address, value: int = 0):
-
     tx = {
         "chainId": await web3.eth.chain_id,
         "from": address,
@@ -79,7 +78,6 @@ async def approve(user_address, amount, token_address, contract_address):
     # print(allowance_amount)
 
     if amount > allowance_amount or amount == 0:
-
         approve_amount = (
             2**128 if amount > allowance_amount else 0
         )  # amount - allowance_amount
@@ -114,16 +112,16 @@ async def getBalance(address, token):
 
 # asyncio.run(
 #     approve(
-#         "0x09F4E0028d76221CC714C2758c45480f75C76398",
+#         "0x...",
 #         10,
-#         "0xd45ab0E1dc7F503Eb177949c2Fb2Ab772B4B6CFC",
-#         web3.to_checksum_address("0x3f39129e54d2331926c1E4bf034e111cf471AA97"),
+#         "0x...",
+#         web3.to_checksum_address("0x..."),
 #     )
 # )
 
 # asyncio.run(
 #     getBalance(
-#         "0x09F4E0028d76221CC714C2758c45480f75C76398",
-#         "0xd45ab0E1dc7F503Eb177949c2Fb2Ab772B4B6CFC",
+#         "0x...",
+#         "0x...",
 #     )
 # )
